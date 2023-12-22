@@ -1,0 +1,84 @@
+﻿@using PustokSH.Areas.PustokAdmin.ViewModels
+﻿
+@model CreateBookVM
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Book</h4>
+
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="MainPhoto">Main Image</label>
+                        <input asp-for="MainPhoto" class="form-control" accept="image/*">
+                        <span asp-validation-for="MainPhoto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="HoverPhoto">Hover Image</label>
+                        <input asp-for="HoverPhoto" class="form-control" accept="image/*">
+                        <span asp-validation-for="HoverPhoto" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photos">Additional Image</label>
+                        <input asp-for="Photos" class="form-control" accept="image/*">
+                        <span asp-validation-for="Photos" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                       <div class="form-group">
+                        <label for="exampleInputName1">AuthorName</label>
+                        <select asp-for="AuthorId" class="form-control" asp-items="new SelectList(Model.authors,nameof(Author.Id),nameof(Author.FullName))">
+                           <option disabled selected>Choose Author</option>
+                       </select>
+                        <span asp-validation-for="AuthorId" class="text-danger"></span>
+                    </div>  
+                   @*  <div class="form-group">
+                        <label for="exampleInputName1">GenreName</label>
+                        <input asp-for="genre.Name" class="form-control" placeholder="genre.Name">
+                        <span asp-validation-for="genre.Name" class="text-danger"></span>
+                    </div>    *@
+                    <div class="form-group">
+                        <label for="exampleInputName1">SalePrice</label>
+                        <input asp-for="SalePrice" class="form-control" placeholder="SalePrice">
+                        <span asp-validation-for="SalePrice" class="text-danger"></span>
+                    </div>  
+                     <div class="form-group">
+                        <label for="exampleInputName1">CostPrice</label>
+                        <input asp-for="CostPrice" class="form-control" placeholder="CostPrice">
+                        <span asp-validation-for="CostPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Discount</label>
+                        <input asp-for="Discount" class="form-control" placeholder="Discount">
+                        <span asp-validation-for="Discount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Desc</label>
+                        <input asp-for="Desc" class="form-control" placeholder="Desc">
+                        <span asp-validation-for="Desc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">GenreName</label>
+                        <select asp-for="GenreId" class="form-control" asp-items="new SelectList(Model.genres,nameof(Genre.Id),nameof(Genre.Name))">
+                            <option disabled selected>Choose Genre</option>
+                        </select>
+                        <span asp-validation-for="GenreId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Tags</label>
+                        <select asp-for="tagIds" class="form-control" asp-items="new SelectList(Model.tags,nameof(Tag.Id),nameof(Tag.Name))">
+                        </select>
+                        <span asp-validation-for="tagIds" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="index" class="btn btn-light">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

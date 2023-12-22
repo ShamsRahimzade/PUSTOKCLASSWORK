@@ -1,0 +1,37 @@
+﻿@model LoginVM
+<main class="page-section inner-page-sec-padding-bottom">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-sm-12 col-md-12 col-xs-12 col-lg-8 mb--30 mb-lg--0">
+				<!-- Login Form s-->
+				<form method="post">
+					<div class="login-form  ">
+						<h4 class="login-title">Login</h4>
+						<p><span class="font-weight-bold">I am a new customer</span></p>
+						<div class="row ">
+							<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+							<div class="col-md-12 col-12 mb--15">
+								<label asp-for="UserNameOrEmail"> UserName Or Email</label>
+								<input asp-for="UserNameOrEmail" class="mb-0 form-control" id="UserNameOrEmail"
+									   placeholder="Enter your UserName Or Email">
+								<span class="text-danger" asp-validation-for="UserNameOrEmail"></span>
+							</div>
+							<div class="col-lg-6 mb--20">
+								<label asp-for="Password">Password</label>
+								<input asp-for="Password" class="mb-0 form-control" placeholder="Enter your password">
+								<span class="text-danger" asp-validation-for="Password"></span>
+							</div>
+							<div class="col-md-12 col-12 mb--15">
+								<label asp-for="IsRemembered">Remember me</label>
+								<input asp-for="IsRemembered" class="mb-0 form-control" id="IsRemembered">
+							</div>
+							<div class="col-md-12">
+								<button type="submit" class="btn btn-success"><a asp-controller="account" asp-action="register">Login</a></button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
